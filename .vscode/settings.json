@@ -1,0 +1,14 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/linux",
+    "CodeGPT.maxTokens": 8000,
+    "easycode.model": "gpt-3.5-turbo",
+    "cSpell.words": [
+        "accountpage",
+        "allbookings",
+        "helpsupport",
+        "mysorepalace",
+        "prefs",
+        "totalprice"
+    ],
+    "easycode.userEmail": "a8354739@gmail.com"
+}

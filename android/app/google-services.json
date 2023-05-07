@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "369079760739",
+    "project_id": "ticketless-ezentry",
+    "storage_bucket": "ticketless-ezentry.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369079760739:android:49778aff58a21af848c556",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369079760739-n9pgpfo6ps78bqh1e64t7e2vur8n1m9j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapp",
+            "certificate_hash": "487c9bd305c792923cce75ed70bd944371ef2079"
+          }
+        },
+        {
+          "client_id": "369079760739-6e3vmu85ls80isvc3a5q06l37ghg6k38.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMLLz8WkU4--J2TKY4RUxCdahj090rGUU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369079760739-6e3vmu85ls80isvc3a5q06l37ghg6k38.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

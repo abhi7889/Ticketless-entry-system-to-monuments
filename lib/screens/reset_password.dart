@@ -59,11 +59,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                   onPressed: () {
                     FirebaseAuth.instance
                         .sendPasswordResetEmail(
-                          email: _emailTextController.text,
-                        )
+                      email: _emailTextController.text,
+                    )
                         .then(
                           (value) => Navigator.of(context).pop(),
-                        );
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.black,

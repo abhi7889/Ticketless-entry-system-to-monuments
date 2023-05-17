@@ -51,7 +51,7 @@ class _SignInScreenState extends State<SignInScreen> {
     try {
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
       final GoogleSignInAuthentication googleAuth =
-          await googleUser!.authentication;
+      await googleUser!.authentication;
 
       final OAuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
@@ -132,7 +132,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 firebaseUIButton(
                   context,
                   "Sign In",
-                  () {
+                      () {
                     FirebaseAuth.instance
                         .signInWithEmailAndPassword(
                       email: _emailTextController.text,
@@ -187,7 +187,7 @@ class _SignInScreenState extends State<SignInScreen> {
             child: const Text(
               " Sign Up",
               style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
         ],

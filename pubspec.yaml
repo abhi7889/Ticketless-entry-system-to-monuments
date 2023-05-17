@@ -56,3 +56,6 @@ flutter:
     - assets/images/logo1.png
     - assets/images/logo/
     - assets/splash_screen.json
+    - assets/confirm.json
+    - assets/images/lgg.png
+    - assets/Confirmed.gif

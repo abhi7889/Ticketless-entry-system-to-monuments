@@ -47,42 +47,42 @@ class AboutPage extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage(
-                        'assets/images/john_doe.jpg',
-                      ),
-                      backgroundColor: Colors.teal,
-                    ),
+                    // CircleAvatar(
+                    //   radius: 50,
+                    //   backgroundImage: AssetImage(
+                    //     'assets/images/john_doe.jpg',
+                    //   ),
+                    //   backgroundColor: Colors.teal,
+                    // ),
                     SizedBox(height: 10),
                     Text(
                       'Abhishek Sharma',
                       style: TextStyle(fontSize: 18),
                     ),
-                    Text(
-                      'Lead Developer',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
+                    // Text(
+                    //   'Lead Developer',
+                    //   style: TextStyle(fontSize: 16, color: Colors.grey),
+                    // ),
                   ],
                 ),
                 Column(
                   children: [
-                    CircleAvatar(
-                      radius: 50,
-                      backgroundImage: AssetImage(
-                        'assets/images/bob_johnson.jpg',
-                      ),
-                      backgroundColor: Colors.teal,
-                    ),
+                    // CircleAvatar(
+                    //   radius: 50,
+                    //   backgroundImage: AssetImage(
+                    //     'assets/images/bob_johnson.jpg',
+                    //   ),
+                    //   backgroundColor: Colors.teal,
+                    // ),
                     SizedBox(height: 10),
                     Text(
                       'Dhara Vadagasiya',
                       style: TextStyle(fontSize: 18),
                     ),
-                    Text(
-                      'Backend Developer',
-                      style: TextStyle(fontSize: 16, color: Colors.grey),
-                    ),
+                    // Text(
+                    //   'Backend Developer',
+                    //   style: TextStyle(fontSize: 16, color: Colors.grey),
+                    // ),
                   ],
                 ),
               ],

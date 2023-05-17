@@ -15,7 +15,7 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _confirmPasswordTextController =
-      TextEditingController();
+  TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
   TextEditingController _firstNameTextController = TextEditingController();
   TextEditingController _lastNameTextController = TextEditingController();
@@ -34,7 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     try {
       // check password contains capital letter and unique symbols
       RegExp regex =
-          new RegExp(r'^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+      new RegExp(r'^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
       if (!regex.hasMatch(_passwordTextController.text)) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -159,7 +159,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   firebaseUIButton(
                     context,
                     "Sign Up",
-                    () async {
+                        () async {
                       if (_passwordTextController.text !=
                           _confirmPasswordTextController.text) {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(

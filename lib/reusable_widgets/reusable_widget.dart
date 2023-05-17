@@ -38,7 +38,8 @@ TextField reusableTextField(String text, IconData icon, bool isPasswordType,
   );
 }
 
-Container firebaseUIButton(BuildContext context, String title, Function onTap) {
+Container firebaseUIButton(BuildContext context, String title, Function onTap,
+    {required ButtonStyle style}) {
   return Container(
     width: MediaQuery.of(context).size.width,
     height: 50,
@@ -48,11 +49,6 @@ Container firebaseUIButton(BuildContext context, String title, Function onTap) {
       onPressed: () {
         onTap();
       },
-      child: Text(
-        title,
-        style: const TextStyle(
-            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
-      ),
       style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.pressed)) {
@@ -62,6 +58,11 @@ Container firebaseUIButton(BuildContext context, String title, Function onTap) {
           }),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),
+      child: Text(
+        title,
+        style: const TextStyle(
+            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
+      ),
     ),
   );
 }

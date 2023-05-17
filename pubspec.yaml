@@ -37,8 +37,9 @@ dependencies:
   ticket_widget: ^0.0.1
   gallery_saver: ^2.3.2
   flutter_slidable: ^3.0.0
-  flutter_stripe: ^9.1.1
+  flutter_stripe: ^9.2.0
   functions_framework: ^0.4.1
+  http: ^0.13.6
 
 
 dev_dependencies:

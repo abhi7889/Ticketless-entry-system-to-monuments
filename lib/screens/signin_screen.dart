@@ -20,6 +20,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   TextEditingController _passwordTextController = TextEditingController();
   TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _errorTextController = TextEditingController();
   bool isLoggedIn = false;
 
   @override
@@ -33,6 +34,7 @@ class _SignInScreenState extends State<SignInScreen> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
     if (isLoggedIn) {
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomePage()),
@@ -61,6 +63,7 @@ class _SignInScreenState extends State<SignInScreen> {
       isLoggedIn = true;
       saveLoginStatus();
 
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => HomePage()),
@@ -77,46 +80,88 @@ class _SignInScreenState extends State<SignInScreen> {
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [
-          hexStringToColor("FF671F"),
-          hexStringToColor("06038D"),
-          hexStringToColor("046A38")
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+          gradient: LinearGradient(
+            colors: [
+              hexStringToColor("FF0000"),
+              hexStringToColor("06038D"),
+              hexStringToColor("046A38"),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.fromLTRB(
-                20, MediaQuery.of(context).size.height * 0.1, 20, 0),
+              20,
+              MediaQuery.of(context).size.height * 0.1,
+              20,
+              0,
+            ),
             child: Column(
               children: [
-                logoWidget('assets/images/logoo.png'),
+                Center(
+                  child: logoWidget('assets/images/lgg.png'),
+                ),
                 const SizedBox(
-                  height: 30,
+                  height: 20,
                 ),
                 reusableTextField("Enter UserName", Icons.person_outline, false,
                     _emailTextController),
                 const SizedBox(
                   height: 20,
                 ),
-                reusableTextField("Enter Password", Icons.lock_outline, true,
-                    _passwordTextController),
-                const SizedBox(
-                  height: 5,
+                reusableTextField(
+                  "Enter Password",
+                  Icons.lock_outline,
+                  true,
+                  _passwordTextController,
+                ),
+                TextField(
+                  controller: _errorTextController,
+                  enabled: false,
+                  style: TextStyle(color: Colors.red),
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    errorBorder: InputBorder.none,
+                    disabledBorder: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                  ),
                 ),
                 forgetPassword(context),
-                firebaseUIButton(context, "Sign In", () {
-                  FirebaseAuth.instance
-                      .signInWithEmailAndPassword(
-                          email: _emailTextController.text,
-                          password: _passwordTextController.text)
-                      .then((value) {
-                    isLoggedIn = true;
-                    saveLoginStatus();
-                    Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => HomePage()));
-                  }).onError((error, stackTrace) {
-                    print("Error ${error.toString()}");
-                  });
-                }),
+                firebaseUIButton(
+                  context,
+                  "Sign In",
+                  () {
+                    FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
+                      email: _emailTextController.text,
+                      password: _passwordTextController.text,
+                    )
+                        .then((value) {
+                      isLoggedIn = true;
+                      saveLoginStatus();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomePage()),
+                      );
+                    }).onError((error, stackTrace) {
+                      print("Error ${error.toString()}");
+                      _errorTextController.text = "Invalid email or password";
+                    });
+                  },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    backgroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 50,
+                      vertical: 15,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                ),
                 signUpOption()
               ],
             ),
@@ -128,7 +173,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Column signUpOption() {
     return Column(children: [
-      const SizedBox(height: 10),
+      const SizedBox(height: 5),
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -147,13 +192,13 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
         ],
       ),
-      GestureDetector(
-        onTap: () async {
-          await _signInWithGoogle();
-        },
-        child: const Image(
-            width: 100, image: AssetImage('assets/images/google.png')),
-      )
+      // GestureDetector(
+      //   onTap: () async {
+      //     await _signInWithGoogle();
+      //   },
+      //   child: const Image(
+      //       width: 100, image: AssetImage('assets/images/google.png')),
+      // )
     ]);
   }
 
